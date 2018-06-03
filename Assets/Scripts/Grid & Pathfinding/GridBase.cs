@@ -152,7 +152,7 @@ namespace GridMaster
 
             Node retVal = null;
 
-            if(x >= 0 && z < maxZ &&
+            if(x >= 0 && x < maxX &&
                y >= 0 && y < maxY &&
                z >= 0 && z < maxZ)
             {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UnitControl
 {
-    [RequireComponent(typeof(HandleAnimations))]
+    //[RequireComponent(typeof(HandleAnimations))]
     public class UnitStates : MonoBehaviour
     {
         public int team;

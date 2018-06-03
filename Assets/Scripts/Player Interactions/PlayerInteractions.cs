@@ -67,7 +67,8 @@ namespace PI
                     }
                     else
                     {
-                        line.SetVertexCount(activeUnit.shortPath.Count);
+                        //line.SetVertexCount(activeUnit.shortPath.Count);
+                        line.positionCount = activeUnit.shortPath.Count;
 
                         for (int i = 0; i < activeUnit.shortPath.Count; i++)
                         {

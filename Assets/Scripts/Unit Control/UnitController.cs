@@ -34,7 +34,7 @@ namespace UnitControl
             states = GetComponent<UnitStates>();
             PlaceOnNodeImmediate(startingPosition);
 
-            currentNode = grid.GetNodeFromVector3(startingPosition);
+            currentNode = grid.GetNodeFromWorldPosition(startingPosition);
         }
 
         private void Update()

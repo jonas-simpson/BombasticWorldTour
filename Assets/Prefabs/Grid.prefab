@@ -73,5 +73,5 @@ MonoBehaviour:
   gridFloorPrefab: {fileID: 168074, guid: 4e5419f074c658c4cbfb77d94508771f, type: 2}
   startNodePosition: {x: 0, y: 0, z: 0}
   endNodePosition: {x: 0, y: 0, z: 0}
+  enabledY: 0
   agents: 0
-  start: 0
