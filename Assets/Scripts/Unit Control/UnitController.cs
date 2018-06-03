@@ -39,8 +39,10 @@ namespace UnitControl
 
         private void Update()
         {
+            Debug.Log("UnitController Update");
             if (Input.GetKeyUp(KeyCode.Space))
             {
+                Debug.Log("spacebar");
                 if (!movePath)
                     movePath = true;
             }
@@ -49,11 +51,14 @@ namespace UnitControl
 
             if(movePath)
             {
+                Debug.Log("Inside movePath");
                 if(!updatedPos)
                 {
+                    Debug.Log(indexPath);
                     if (indexPath < shortPath.Count - 1)
                     {
                         indexPath++;
+                        Debug.Log("Incrementing indexPath");
                     }
                     else
                     {
@@ -63,6 +68,9 @@ namespace UnitControl
                     currentNode = grid.GetNodeFromWorldPosition(transform.position);
                     startPos = currentNode.worldObject.transform.position;
                     targetPos = shortPath[indexPath].worldObject.transform.position;
+
+                    Debug.Log(startPos);
+                    Debug.Log(targetPos);
 
                     fractLength = Vector3.Distance(startPos, targetPos);
                     startTime = Time.time;
@@ -118,7 +126,6 @@ namespace UnitControl
 
                 curDirection = nextDirection;
             }
-
             shortPath.Add(currentPath[currentPath.Count - 1]);
         }
 

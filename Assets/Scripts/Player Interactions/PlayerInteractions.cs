@@ -14,8 +14,8 @@ namespace PI
         public bool hasPath;
         public bool holdPath;
 
-        PathfindMaster pathfinder;
-        GridBase grid;
+        public PathfindMaster pathfinder;
+        public GridBase grid;
         Node prevNode;
 
         public bool visualizePath;
@@ -24,8 +24,8 @@ namespace PI
 
         void Start()
         {
-            grid = GridBase.GetInstance();
-            pathfinder = PathfindMaster.GetInstance();
+            //grid = GridBase.GetInstance();
+            //pathfinder = PathfindMaster.GetInstance();
         }
 
         void Update()
@@ -34,8 +34,11 @@ namespace PI
             {
                 if(!hasPath)
                 {
+                    //Debug.Log(activeUnit.transform.position);
+                    //Debug.Log(grid);
                     Node startNode = grid.GetNodeFromWorldPosition(activeUnit.transform.position);
                     Node targetNode = FindNodeFromMousePosition();
+                    //Debug.Log(targetNode);
 
                     if(targetNode != null && startNode != null)
                     {
@@ -57,7 +60,7 @@ namespace PI
                 {
                     holdPath = false;
                 }
-
+                //Debug.Log(activeUnit.shortPath.Count);
                 if(visualizePath)
                 {
                     if(line == null)
@@ -67,7 +70,7 @@ namespace PI
                     }
                     else
                     {
-                        //line.SetVertexCount(activeUnit.shortPath.Count);
+                        //line.SetVertexCount(activeUnit.shortPath.Count); obsolete
                         line.positionCount = activeUnit.shortPath.Count;
 
                         for (int i = 0; i < activeUnit.shortPath.Count; i++)
@@ -90,6 +93,12 @@ namespace PI
             {
                 retVal = grid.GetNodeFromWorldPosition(hit.point);
             }
+
+            /*
+            Debug.Log(retVal.x);
+            Debug.Log(retVal.y);
+            Debug.Log(retVal.z);
+            */
 
             return retVal;
         }
