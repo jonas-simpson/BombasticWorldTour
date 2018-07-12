@@ -15,6 +15,11 @@ public class PlayerController : MonoBehaviour
     public int movement2 = 10;
     public int range = 0;
 
+    public int defenseNorth = 0;
+    public int defenseEast = 0;
+    public int defenseSouth = 0;
+    public int defenseWest = 0;
+
     public int actionCount = 2;
 
     public bool isActive = false;
@@ -25,7 +30,7 @@ public class PlayerController : MonoBehaviour
     private Transform pathTarget;
     private NavMeshPath path;
 
-    private int inRange = 0;
+    public int inRange = 0;
 
     public GameObject sessionMaster;
     GameTracker gameManager;
@@ -44,16 +49,19 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        
         if (isActive && actionCount > 0 && gameManager.playerTurn == true)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);    //take current mouse position and make a ray in that direction
             RaycastHit hit;
 
+            /*
             //if mouse is over the playing field
             if (Physics.Raycast(ray, out hit))
             {
                 drawLine(hit.point);
 
+                
                 //Check for left mouse button
                 if (Input.GetMouseButtonDown(0) && gameManager.teamActionCount > 0)
                 {
@@ -62,9 +70,113 @@ public class PlayerController : MonoBehaviour
                         moveUnit(hit.point);
                     }
                 }
+                
+            }
+            */
+        }
+        
+	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //Calculate defense
+        if (other.gameObject.tag == "Tile")
+        {
+            Tile currentTile = other.gameObject.GetComponent<Tile>();
+
+            Debug.Log(other.gameObject.name);
+
+            defenseNorth = currentTile.northCover;
+            defenseSouth = currentTile.southCover;
+            defenseEast = currentTile.eastCover;
+            defenseWest = currentTile.westCover;
+        }
+    }
+
+    //OLD DEFENSE
+    /*
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("collision?");
+        if(other.gameObject.tag == "lowCover")
+        {
+            Debug.Log("wall collision");
+            Vector3 targetDir = (other.transform.position - transform.position).normalized;
+            float angle = Vector3.Angle(targetDir, Vector3.forward);
+            Vector3 cross = Vector3.Cross(targetDir, Vector3.forward);
+            Debug.Log(cross.y);
+            if (cross.y < 0 || cross.y > 0.99)
+                angle = -angle;
+            //float angle = Mathf.Atan2(localTarget.x, localTarget.z) * Mathf.Rad2Deg
+
+            Debug.DrawRay(transform.position, targetDir, Color.white, 2, false);
+
+            Debug.Log("Angle: " + angle);
+
+            if (angle <= 45 && angle >= -45)
+            {
+                Debug.Log("north");
+                defenseNorth++;
+            }
+            else if (angle >= 45 && angle <= 135)
+            {
+                Debug.Log("east");
+                defenseEast++;
+            }
+            else if (angle >= 135 && angle <= 180 || angle <= -135 && angle >= -180)
+            {
+                Debug.Log("south");
+                defenseSouth++;
+            }
+            else if (angle >= -135 && angle <= -45)
+            {
+                Debug.Log("west");
+                defenseWest++;
             }
         }
-	}
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("collision?");
+        if (other.gameObject.tag == "lowCover")
+        {
+            Debug.Log("wall collision");
+            Vector3 targetDir = (other.transform.position - transform.position).normalized;
+            float angle = Vector3.Angle(targetDir, Vector3.forward);
+            Vector3 cross = Vector3.Cross(targetDir, Vector3.forward);
+            Debug.Log(cross.y);
+            if (cross.y < 0 || cross.y > 0.99)
+                angle = -angle;
+            //float angle = Mathf.Atan2(localTarget.x, localTarget.z) * Mathf.Rad2Deg
+
+            Debug.DrawRay(transform.position, targetDir, Color.black, 2, false);
+
+            Debug.Log("Angle: " + angle);
+
+            if (angle <= 45 && angle >= -45)
+            {
+                Debug.Log("north");
+                defenseNorth--;
+            }
+            else if (angle >= 45 && angle <= 135)
+            {
+                Debug.Log("east");
+                defenseEast--;
+            }
+            else if (angle >= 135 && angle <= 180 || angle <= -135 && angle >= -180)
+            {
+                Debug.Log("south");
+                defenseSouth--;
+            }
+            else if (angle >= -135 && angle <= -45)
+            {
+                Debug.Log("west");
+                defenseWest--;
+            }
+        }
+    }
+    */
 
     public void resetHero()
     {
@@ -117,6 +229,7 @@ public class PlayerController : MonoBehaviour
     public void moveUnit(Vector3 hit)
     {
         //MOVE OUR AGENT
+        //defenseNorth = defenseEast = defenseSouth = defenseWest = 0;
         agent.SetDestination(hit);
         actionCount -= inRange;
 

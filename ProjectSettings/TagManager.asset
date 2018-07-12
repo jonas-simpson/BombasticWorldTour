@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Hero
+  - lowCover
+  - Tile
   layers:
   - Default
   - TransparentFX
