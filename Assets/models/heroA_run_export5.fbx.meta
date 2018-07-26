@@ -1,0 +1,851 @@
+fileFormatVersion: 2
+guid: 6af790b8b48bdcc48bdc525e3b41882d
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: ankle_L_joint
+    100002: ankle_R_joint
+    100004: arm_L_joint
+    100006: arm_R_joint
+    100008: blend_group
+    100010: body_geo
+    100012: body_geo_group
+    100014: collar_L_joint
+    100016: collar_R_joint
+    100018: elbow_L_joint
+    100020: elbow_R_joint
+    100022: eye_L_joint
+    100024: eye_R_joint
+    100026: eyeEnd_L_joint
+    100028: eyeEnd_R_joint
+    100030: face_joint
+    100032: foot_L_joint
+    100034: foot_R_joint
+    100036: geo_group
+    100038: hair_geo
+    100040: hair_geo 1
+    100042: hair_geo 10
+    100044: hair_geo 11
+    100046: hair_geo 12
+    100048: hair_geo 13
+    100050: hair_geo 14
+    100052: hair_geo 15
+    100054: hair_geo 16
+    100056: hair_geo 17
+    100058: hair_geo 18
+    100060: hair_geo 2
+    100062: hair_geo 3
+    100064: hair_geo 4
+    100066: hair_geo 5
+    100068: hair_geo 6
+    100070: hair_geo 7
+    100072: hair_geo 8
+    100074: hair_geo 9
+    100076: hand_L_geo
+    100078: hand_R_geo
+    100080: head_geo
+    100082: head_geo 1
+    100084: head_geo_group
+    100086: head_geo_group1
+    100088: head_geo_group10
+    100090: head_geo_group11
+    100092: head_geo_group12
+    100094: head_geo_group13
+    100096: head_geo_group14
+    100098: head_geo_group15
+    100100: head_geo_group16
+    100102: head_geo_group17
+    100104: head_geo_group18
+    100106: head_geo_group2
+    100108: head_geo_group3
+    100110: head_geo_group4
+    100112: head_geo_group5
+    100114: head_geo_group6
+    100116: head_geo_group7
+    100118: head_geo_group8
+    100120: head_geo_group9
+    100122: head_joint
+    100124: headEnd_joint
+    100126: //RootNode
+    100128: hood1_joint
+    100130: hood2_joint
+    100132: hood3_joint
+    100134: hood4_joint
+    100136: hood_geo_group
+    100138: hoodBack_geo
+    100140: hoodRing_geo
+    100142: index1_L_joint
+    100144: index1_R_joint
+    100146: index2_L_joint
+    100148: index2_R_joint
+    100150: index3_L_joint
+    100152: index3_R_joint
+    100154: index4_L_joint
+    100156: index4_R_joint
+    100158: joints_group
+    100160: knee_L_joint
+    100162: knee_R_joint
+    100164: leg_L_joint
+    100166: leg_R_joint
+    100168: middle1_L_joint
+    100170: middle1_R_joint
+    100172: middle2_L_joint
+    100174: middle2_R_joint
+    100176: middle3_L_joint
+    100178: middle3_R_joint
+    100180: middle4_L_joint
+    100182: middle4_R_joint
+    100184: pinky1_L_joint
+    100186: pinky1_R_joint
+    100188: pinky2_L_joint
+    100190: pinky2_R_joint
+    100192: pinky3_L_joint
+    100194: pinky3_R_joint
+    100196: pinky4_L_joint
+    100198: pinky4_R_joint
+    100200: pupil_L_geo
+    100202: pupil_L_geo 1
+    100204: pupil_L_geo 10
+    100206: pupil_L_geo 11
+    100208: pupil_L_geo 12
+    100210: pupil_L_geo 13
+    100212: pupil_L_geo 14
+    100214: pupil_L_geo 15
+    100216: pupil_L_geo 16
+    100218: pupil_L_geo 17
+    100220: pupil_L_geo 18
+    100222: pupil_L_geo 2
+    100224: pupil_L_geo 3
+    100226: pupil_L_geo 4
+    100228: pupil_L_geo 5
+    100230: pupil_L_geo 6
+    100232: pupil_L_geo 7
+    100234: pupil_L_geo 8
+    100236: pupil_L_geo 9
+    100238: pupil_R_geo
+    100240: pupil_R_geo 1
+    100242: pupil_R_geo 10
+    100244: pupil_R_geo 11
+    100246: pupil_R_geo 12
+    100248: pupil_R_geo 13
+    100250: pupil_R_geo 14
+    100252: pupil_R_geo 15
+    100254: pupil_R_geo 16
+    100256: pupil_R_geo 17
+    100258: pupil_R_geo 18
+    100260: pupil_R_geo 2
+    100262: pupil_R_geo 3
+    100264: pupil_R_geo 4
+    100266: pupil_R_geo 5
+    100268: pupil_R_geo 6
+    100270: pupil_R_geo 7
+    100272: pupil_R_geo 8
+    100274: pupil_R_geo 9
+    100276: ROOT_joint
+    100278: spine1_joint
+    100280: spine2_joint
+    100282: spine3_joint
+    100284: teethBottom_geo
+    100286: teethBottom_geo 1
+    100288: teethBottom_geo 10
+    100290: teethBottom_geo 11
+    100292: teethBottom_geo 12
+    100294: teethBottom_geo 13
+    100296: teethBottom_geo 2
+    100298: teethBottom_geo 3
+    100300: teethBottom_geo 4
+    100302: teethBottom_geo 5
+    100304: teethBottom_geo 6
+    100306: teethBottom_geo 7
+    100308: teethBottom_geo 8
+    100310: teethBottom_geo 9
+    100312: teethTop_geo
+    100314: teethTop_geo 1
+    100316: teethTop_geo 10
+    100318: teethTop_geo 11
+    100320: teethTop_geo 12
+    100322: teethTop_geo 13
+    100324: teethTop_geo 2
+    100326: teethTop_geo 3
+    100328: teethTop_geo 4
+    100330: teethTop_geo 5
+    100332: teethTop_geo 6
+    100334: teethTop_geo 7
+    100336: teethTop_geo 8
+    100338: teethTop_geo 9
+    100340: thumb1_L_joint
+    100342: thumb1_R_joint
+    100344: thumb2_L_joint
+    100346: thumb2_R_joint
+    100348: thumb3_L_joint
+    100350: thumb3_R_joint
+    100352: thumb4_L_joint
+    100354: thumb4_R_joint
+    100356: toes_L_joint
+    100358: toes_R_joint
+    100360: tongue_geo
+    100362: tongue_geo 1
+    100364: tongue_geo 10
+    100366: tongue_geo 11
+    100368: tongue_geo 12
+    100370: tongue_geo 13
+    100372: tongue_geo 14
+    100374: tongue_geo 15
+    100376: tongue_geo 16
+    100378: tongue_geo 17
+    100380: tongue_geo 18
+    100382: tongue_geo 2
+    100384: tongue_geo 3
+    100386: tongue_geo 4
+    100388: tongue_geo 5
+    100390: tongue_geo 6
+    100392: tongue_geo 7
+    100394: tongue_geo 8
+    100396: tongue_geo 9
+    100398: wrist_L_joint
+    100400: wrist_R_joint
+    400000: ankle_L_joint
+    400002: ankle_R_joint
+    400004: arm_L_joint
+    400006: arm_R_joint
+    400008: blend_group
+    400010: body_geo
+    400012: body_geo_group
+    400014: collar_L_joint
+    400016: collar_R_joint
+    400018: elbow_L_joint
+    400020: elbow_R_joint
+    400022: eye_L_joint
+    400024: eye_R_joint
+    400026: eyeEnd_L_joint
+    400028: eyeEnd_R_joint
+    400030: face_joint
+    400032: foot_L_joint
+    400034: foot_R_joint
+    400036: geo_group
+    400038: hair_geo
+    400040: hair_geo 1
+    400042: hair_geo 10
+    400044: hair_geo 11
+    400046: hair_geo 12
+    400048: hair_geo 13
+    400050: hair_geo 14
+    400052: hair_geo 15
+    400054: hair_geo 16
+    400056: hair_geo 17
+    400058: hair_geo 18
+    400060: hair_geo 2
+    400062: hair_geo 3
+    400064: hair_geo 4
+    400066: hair_geo 5
+    400068: hair_geo 6
+    400070: hair_geo 7
+    400072: hair_geo 8
+    400074: hair_geo 9
+    400076: hand_L_geo
+    400078: hand_R_geo
+    400080: head_geo
+    400082: head_geo 1
+    400084: head_geo_group
+    400086: head_geo_group1
+    400088: head_geo_group10
+    400090: head_geo_group11
+    400092: head_geo_group12
+    400094: head_geo_group13
+    400096: head_geo_group14
+    400098: head_geo_group15
+    400100: head_geo_group16
+    400102: head_geo_group17
+    400104: head_geo_group18
+    400106: head_geo_group2
+    400108: head_geo_group3
+    400110: head_geo_group4
+    400112: head_geo_group5
+    400114: head_geo_group6
+    400116: head_geo_group7
+    400118: head_geo_group8
+    400120: head_geo_group9
+    400122: head_joint
+    400124: headEnd_joint
+    400126: //RootNode
+    400128: hood1_joint
+    400130: hood2_joint
+    400132: hood3_joint
+    400134: hood4_joint
+    400136: hood_geo_group
+    400138: hoodBack_geo
+    400140: hoodRing_geo
+    400142: index1_L_joint
+    400144: index1_R_joint
+    400146: index2_L_joint
+    400148: index2_R_joint
+    400150: index3_L_joint
+    400152: index3_R_joint
+    400154: index4_L_joint
+    400156: index4_R_joint
+    400158: joints_group
+    400160: knee_L_joint
+    400162: knee_R_joint
+    400164: leg_L_joint
+    400166: leg_R_joint
+    400168: middle1_L_joint
+    400170: middle1_R_joint
+    400172: middle2_L_joint
+    400174: middle2_R_joint
+    400176: middle3_L_joint
+    400178: middle3_R_joint
+    400180: middle4_L_joint
+    400182: middle4_R_joint
+    400184: pinky1_L_joint
+    400186: pinky1_R_joint
+    400188: pinky2_L_joint
+    400190: pinky2_R_joint
+    400192: pinky3_L_joint
+    400194: pinky3_R_joint
+    400196: pinky4_L_joint
+    400198: pinky4_R_joint
+    400200: pupil_L_geo
+    400202: pupil_L_geo 1
+    400204: pupil_L_geo 10
+    400206: pupil_L_geo 11
+    400208: pupil_L_geo 12
+    400210: pupil_L_geo 13
+    400212: pupil_L_geo 14
+    400214: pupil_L_geo 15
+    400216: pupil_L_geo 16
+    400218: pupil_L_geo 17
+    400220: pupil_L_geo 18
+    400222: pupil_L_geo 2
+    400224: pupil_L_geo 3
+    400226: pupil_L_geo 4
+    400228: pupil_L_geo 5
+    400230: pupil_L_geo 6
+    400232: pupil_L_geo 7
+    400234: pupil_L_geo 8
+    400236: pupil_L_geo 9
+    400238: pupil_R_geo
+    400240: pupil_R_geo 1
+    400242: pupil_R_geo 10
+    400244: pupil_R_geo 11
+    400246: pupil_R_geo 12
+    400248: pupil_R_geo 13
+    400250: pupil_R_geo 14
+    400252: pupil_R_geo 15
+    400254: pupil_R_geo 16
+    400256: pupil_R_geo 17
+    400258: pupil_R_geo 18
+    400260: pupil_R_geo 2
+    400262: pupil_R_geo 3
+    400264: pupil_R_geo 4
+    400266: pupil_R_geo 5
+    400268: pupil_R_geo 6
+    400270: pupil_R_geo 7
+    400272: pupil_R_geo 8
+    400274: pupil_R_geo 9
+    400276: ROOT_joint
+    400278: spine1_joint
+    400280: spine2_joint
+    400282: spine3_joint
+    400284: teethBottom_geo
+    400286: teethBottom_geo 1
+    400288: teethBottom_geo 10
+    400290: teethBottom_geo 11
+    400292: teethBottom_geo 12
+    400294: teethBottom_geo 13
+    400296: teethBottom_geo 2
+    400298: teethBottom_geo 3
+    400300: teethBottom_geo 4
+    400302: teethBottom_geo 5
+    400304: teethBottom_geo 6
+    400306: teethBottom_geo 7
+    400308: teethBottom_geo 8
+    400310: teethBottom_geo 9
+    400312: teethTop_geo
+    400314: teethTop_geo 1
+    400316: teethTop_geo 10
+    400318: teethTop_geo 11
+    400320: teethTop_geo 12
+    400322: teethTop_geo 13
+    400324: teethTop_geo 2
+    400326: teethTop_geo 3
+    400328: teethTop_geo 4
+    400330: teethTop_geo 5
+    400332: teethTop_geo 6
+    400334: teethTop_geo 7
+    400336: teethTop_geo 8
+    400338: teethTop_geo 9
+    400340: thumb1_L_joint
+    400342: thumb1_R_joint
+    400344: thumb2_L_joint
+    400346: thumb2_R_joint
+    400348: thumb3_L_joint
+    400350: thumb3_R_joint
+    400352: thumb4_L_joint
+    400354: thumb4_R_joint
+    400356: toes_L_joint
+    400358: toes_R_joint
+    400360: tongue_geo
+    400362: tongue_geo 1
+    400364: tongue_geo 10
+    400366: tongue_geo 11
+    400368: tongue_geo 12
+    400370: tongue_geo 13
+    400372: tongue_geo 14
+    400374: tongue_geo 15
+    400376: tongue_geo 16
+    400378: tongue_geo 17
+    400380: tongue_geo 18
+    400382: tongue_geo 2
+    400384: tongue_geo 3
+    400386: tongue_geo 4
+    400388: tongue_geo 5
+    400390: tongue_geo 6
+    400392: tongue_geo 7
+    400394: tongue_geo 8
+    400396: tongue_geo 9
+    400398: wrist_L_joint
+    400400: wrist_R_joint
+    2100000: face_mat
+    2100002: eyes_mat
+    2100004: mouth_mat
+    2100006: pupil_mat
+    2100008: hair_mat
+    2100010: tongue_mat
+    2100012: teeth_mat
+    2100014: shirt_mat
+    2100016: pants_mat
+    2100018: shoes_mat
+    2100020: hands_mat
+    2100022: hood_mat
+    2300000: hair_geo
+    2300002: hair_geo 1
+    2300004: hair_geo 10
+    2300006: hair_geo 11
+    2300008: hair_geo 12
+    2300010: hair_geo 13
+    2300012: hair_geo 14
+    2300014: hair_geo 15
+    2300016: hair_geo 16
+    2300018: hair_geo 17
+    2300020: hair_geo 2
+    2300022: hair_geo 3
+    2300024: hair_geo 4
+    2300026: hair_geo 5
+    2300028: hair_geo 6
+    2300030: hair_geo 7
+    2300032: hair_geo 8
+    2300034: hair_geo 9
+    2300036: head_geo
+    2300038: pupil_L_geo
+    2300040: pupil_L_geo 1
+    2300042: pupil_L_geo 10
+    2300044: pupil_L_geo 11
+    2300046: pupil_L_geo 12
+    2300048: pupil_L_geo 13
+    2300050: pupil_L_geo 14
+    2300052: pupil_L_geo 15
+    2300054: pupil_L_geo 16
+    2300056: pupil_L_geo 17
+    2300058: pupil_L_geo 2
+    2300060: pupil_L_geo 3
+    2300062: pupil_L_geo 4
+    2300064: pupil_L_geo 5
+    2300066: pupil_L_geo 6
+    2300068: pupil_L_geo 7
+    2300070: pupil_L_geo 8
+    2300072: pupil_L_geo 9
+    2300074: pupil_R_geo
+    2300076: pupil_R_geo 1
+    2300078: pupil_R_geo 10
+    2300080: pupil_R_geo 11
+    2300082: pupil_R_geo 12
+    2300084: pupil_R_geo 13
+    2300086: pupil_R_geo 14
+    2300088: pupil_R_geo 15
+    2300090: pupil_R_geo 16
+    2300092: pupil_R_geo 17
+    2300094: pupil_R_geo 2
+    2300096: pupil_R_geo 3
+    2300098: pupil_R_geo 4
+    2300100: pupil_R_geo 5
+    2300102: pupil_R_geo 6
+    2300104: pupil_R_geo 7
+    2300106: pupil_R_geo 8
+    2300108: pupil_R_geo 9
+    2300110: teethBottom_geo
+    2300112: teethBottom_geo 1
+    2300114: teethBottom_geo 10
+    2300116: teethBottom_geo 11
+    2300118: teethBottom_geo 12
+    2300120: teethBottom_geo 2
+    2300122: teethBottom_geo 3
+    2300124: teethBottom_geo 4
+    2300126: teethBottom_geo 5
+    2300128: teethBottom_geo 6
+    2300130: teethBottom_geo 7
+    2300132: teethBottom_geo 8
+    2300134: teethBottom_geo 9
+    2300136: teethTop_geo
+    2300138: teethTop_geo 1
+    2300140: teethTop_geo 10
+    2300142: teethTop_geo 11
+    2300144: teethTop_geo 12
+    2300146: teethTop_geo 2
+    2300148: teethTop_geo 3
+    2300150: teethTop_geo 4
+    2300152: teethTop_geo 5
+    2300154: teethTop_geo 6
+    2300156: teethTop_geo 7
+    2300158: teethTop_geo 8
+    2300160: teethTop_geo 9
+    2300162: tongue_geo
+    2300164: tongue_geo 1
+    2300166: tongue_geo 10
+    2300168: tongue_geo 11
+    2300170: tongue_geo 12
+    2300172: tongue_geo 13
+    2300174: tongue_geo 14
+    2300176: tongue_geo 15
+    2300178: tongue_geo 16
+    2300180: tongue_geo 17
+    2300182: tongue_geo 2
+    2300184: tongue_geo 3
+    2300186: tongue_geo 4
+    2300188: tongue_geo 5
+    2300190: tongue_geo 6
+    2300192: tongue_geo 7
+    2300194: tongue_geo 8
+    2300196: tongue_geo 9
+    3300000: hair_geo
+    3300002: hair_geo 1
+    3300004: hair_geo 10
+    3300006: hair_geo 11
+    3300008: hair_geo 12
+    3300010: hair_geo 13
+    3300012: hair_geo 14
+    3300014: hair_geo 15
+    3300016: hair_geo 16
+    3300018: hair_geo 17
+    3300020: hair_geo 2
+    3300022: hair_geo 3
+    3300024: hair_geo 4
+    3300026: hair_geo 5
+    3300028: hair_geo 6
+    3300030: hair_geo 7
+    3300032: hair_geo 8
+    3300034: hair_geo 9
+    3300036: head_geo
+    3300038: pupil_L_geo
+    3300040: pupil_L_geo 1
+    3300042: pupil_L_geo 10
+    3300044: pupil_L_geo 11
+    3300046: pupil_L_geo 12
+    3300048: pupil_L_geo 13
+    3300050: pupil_L_geo 14
+    3300052: pupil_L_geo 15
+    3300054: pupil_L_geo 16
+    3300056: pupil_L_geo 17
+    3300058: pupil_L_geo 2
+    3300060: pupil_L_geo 3
+    3300062: pupil_L_geo 4
+    3300064: pupil_L_geo 5
+    3300066: pupil_L_geo 6
+    3300068: pupil_L_geo 7
+    3300070: pupil_L_geo 8
+    3300072: pupil_L_geo 9
+    3300074: pupil_R_geo
+    3300076: pupil_R_geo 1
+    3300078: pupil_R_geo 10
+    3300080: pupil_R_geo 11
+    3300082: pupil_R_geo 12
+    3300084: pupil_R_geo 13
+    3300086: pupil_R_geo 14
+    3300088: pupil_R_geo 15
+    3300090: pupil_R_geo 16
+    3300092: pupil_R_geo 17
+    3300094: pupil_R_geo 2
+    3300096: pupil_R_geo 3
+    3300098: pupil_R_geo 4
+    3300100: pupil_R_geo 5
+    3300102: pupil_R_geo 6
+    3300104: pupil_R_geo 7
+    3300106: pupil_R_geo 8
+    3300108: pupil_R_geo 9
+    3300110: teethBottom_geo
+    3300112: teethBottom_geo 1
+    3300114: teethBottom_geo 10
+    3300116: teethBottom_geo 11
+    3300118: teethBottom_geo 12
+    3300120: teethBottom_geo 2
+    3300122: teethBottom_geo 3
+    3300124: teethBottom_geo 4
+    3300126: teethBottom_geo 5
+    3300128: teethBottom_geo 6
+    3300130: teethBottom_geo 7
+    3300132: teethBottom_geo 8
+    3300134: teethBottom_geo 9
+    3300136: teethTop_geo
+    3300138: teethTop_geo 1
+    3300140: teethTop_geo 10
+    3300142: teethTop_geo 11
+    3300144: teethTop_geo 12
+    3300146: teethTop_geo 2
+    3300148: teethTop_geo 3
+    3300150: teethTop_geo 4
+    3300152: teethTop_geo 5
+    3300154: teethTop_geo 6
+    3300156: teethTop_geo 7
+    3300158: teethTop_geo 8
+    3300160: teethTop_geo 9
+    3300162: tongue_geo
+    3300164: tongue_geo 1
+    3300166: tongue_geo 10
+    3300168: tongue_geo 11
+    3300170: tongue_geo 12
+    3300172: tongue_geo 13
+    3300174: tongue_geo 14
+    3300176: tongue_geo 15
+    3300178: tongue_geo 16
+    3300180: tongue_geo 17
+    3300182: tongue_geo 2
+    3300184: tongue_geo 3
+    3300186: tongue_geo 4
+    3300188: tongue_geo 5
+    3300190: tongue_geo 6
+    3300192: tongue_geo 7
+    3300194: tongue_geo 8
+    3300196: tongue_geo 9
+    4300000: head_geo
+    4300002: pupil_R_geo
+    4300004: pupil_L_geo
+    4300006: hair_geo
+    4300008: tongue_geo
+    4300010: teethBottom_geo
+    4300012: teethTop_geo
+    4300014: body_geo
+    4300016: hand_L_geo
+    4300018: hand_R_geo
+    4300020: hoodRing_geo
+    4300022: hoodBack_geo
+    4300024: head_geo
+    4300026: pupil_R_geo
+    4300028: pupil_L_geo
+    4300030: hair_geo
+    4300032: tongue_geo
+    4300034: teethBottom_geo
+    4300036: teethTop_geo
+    4300038: pupil_R_geo
+    4300040: pupil_L_geo
+    4300042: hair_geo
+    4300044: tongue_geo
+    4300046: teethBottom_geo
+    4300048: teethTop_geo
+    4300050: pupil_R_geo
+    4300052: pupil_L_geo
+    4300054: hair_geo
+    4300056: tongue_geo
+    4300058: teethBottom_geo
+    4300060: teethTop_geo
+    4300062: pupil_R_geo
+    4300064: pupil_L_geo
+    4300066: hair_geo
+    4300068: tongue_geo
+    4300070: teethBottom_geo
+    4300072: teethTop_geo
+    4300074: pupil_R_geo
+    4300076: pupil_L_geo
+    4300078: hair_geo
+    4300080: tongue_geo
+    4300082: teethBottom_geo
+    4300084: teethTop_geo
+    4300086: pupil_R_geo
+    4300088: pupil_L_geo
+    4300090: hair_geo
+    4300092: tongue_geo
+    4300094: teethBottom_geo
+    4300096: teethTop_geo
+    4300098: pupil_R_geo
+    4300100: pupil_L_geo
+    4300102: hair_geo
+    4300104: tongue_geo
+    4300106: teethBottom_geo
+    4300108: teethTop_geo
+    4300110: pupil_R_geo
+    4300112: pupil_L_geo
+    4300114: hair_geo
+    4300116: tongue_geo
+    4300118: teethBottom_geo
+    4300120: teethTop_geo
+    4300122: pupil_R_geo
+    4300124: pupil_L_geo
+    4300126: hair_geo
+    4300128: tongue_geo
+    4300130: pupil_R_geo
+    4300132: pupil_L_geo
+    4300134: hair_geo
+    4300136: tongue_geo
+    4300138: pupil_R_geo
+    4300140: pupil_L_geo
+    4300142: hair_geo
+    4300144: tongue_geo
+    4300146: teethBottom_geo
+    4300148: teethTop_geo
+    4300150: pupil_R_geo
+    4300152: pupil_L_geo
+    4300154: hair_geo
+    4300156: tongue_geo
+    4300158: pupil_R_geo
+    4300160: pupil_L_geo
+    4300162: hair_geo
+    4300164: tongue_geo
+    4300166: pupil_R_geo
+    4300168: pupil_L_geo
+    4300170: hair_geo
+    4300172: tongue_geo
+    4300174: teethBottom_geo
+    4300176: teethTop_geo
+    4300178: pupil_R_geo
+    4300180: pupil_L_geo
+    4300182: hair_geo
+    4300184: tongue_geo
+    4300186: teethBottom_geo
+    4300188: teethTop_geo
+    4300190: pupil_R_geo
+    4300192: pupil_L_geo
+    4300194: hair_geo
+    4300196: tongue_geo
+    4300198: teethBottom_geo
+    4300200: teethTop_geo
+    4300202: pupil_R_geo
+    4300204: pupil_L_geo
+    4300206: hair_geo
+    4300208: tongue_geo
+    4300210: teethBottom_geo
+    4300212: teethTop_geo
+    4300214: pupil_R_geo
+    4300216: pupil_L_geo
+    4300218: hair_geo
+    4300220: tongue_geo
+    7400000: heroA_run_v09
+    9500000: //RootNode
+    13700000: body_geo
+    13700002: hair_geo 18
+    13700004: hand_L_geo
+    13700006: hand_R_geo
+    13700008: head_geo 1
+    13700010: hoodBack_geo
+    13700012: hoodRing_geo
+    13700014: pupil_L_geo 18
+    13700016: pupil_R_geo 18
+    13700018: teethBottom_geo 13
+    13700020: teethTop_geo 13
+    13700022: tongue_geo 18
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: heroA_run_v09
+      takeName: heroA_run_v09
+      firstFrame: 1
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
