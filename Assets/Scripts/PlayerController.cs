@@ -44,6 +44,12 @@ public class PlayerController : MonoBehaviour
 
     public bool OUT = false;
 
+    //LineRenderer line;
+    bool lineOn = false;
+
+    AudioSource audioSource;
+    public AudioClip footsteps;
+
 
     // Use this for initialization
     void Start ()
@@ -52,6 +58,15 @@ public class PlayerController : MonoBehaviour
         sessionMaster = GameObject.Find("SessionMaster");
         gameManager = sessionMaster.GetComponent<GameTracker>();
         agent = gameObject.GetComponent<NavMeshAgent>();
+        audioSource = gameObject.GetComponent<AudioSource>();
+
+        /*
+        line = gameObject.AddComponent<LineRenderer>();
+        //line.material = new Material(Shader.Find("Sprites/Default")) { color = Color.yellow };
+        line.startWidth = 0.05f;
+        line.endWidth = 0.2f;
+        line.numCornerVertices = 10;
+        */
 
         updateUI();
 
@@ -63,20 +78,25 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        
+        //if player is out
+        if (hp < 1 && OUT == false)
+        {
+            anim.SetBool("isOut", true);
+            Debug.Log("Player OUT! AAAAAAAAAAAAAAAAHH");
+
+            hpText.text = "KO!";
+
+            OUT = true;
+            gameManager.falseHeroCount--;
+        }
+
+        /*
         if (isActive && actionCount > 0 && gameManager.playerTurn == true)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);    //take current mouse position and make a ray in that direction
             RaycastHit hit;
 
-            if (hp <= 0)
-            {
-                OUT = true;
-                //gameObject.SetActive(false);
-                gameManager.heroCount--;
-            }
-
-            /*
+            
             //if mouse is over the playing field
             if (Physics.Raycast(ray, out hit))
             {
@@ -93,16 +113,47 @@ public class PlayerController : MonoBehaviour
                 }
                 
             }
-            */
+            
         }
+        */
 
-        if(agent.remainingDistance <= 0.1)
+        if(agent.remainingDistance <= 0.1 && isMoving == true && OUT == false)
         {
+            isMoving = false;
+
+            audioSource.Stop();
+
+
+            Vector3 newVector = new Vector3 (gameObject.transform.position.x, (transform.position.y + 1), transform.position.z);
+            RaycastHit hit;
+            Physics.Raycast(newVector, -Vector3.up, out hit);
+            Debug.Log(hit.collider.gameObject);
+            Tile currentTile = hit.transform.gameObject.GetComponent<Tile>();
+            defenseNorth = currentTile.northCover;
+            defenseSouth = currentTile.southCover;
+            defenseEast = currentTile.eastCover;
+            defenseWest = currentTile.westCover;
+
             anim.SetBool("isRunning", false);
+            if (defenseNorth + defenseSouth + defenseEast + defenseWest > 0)
+            {
+                anim.SetBool("isCrouching", true);
+            }
+            else
+            {
+                anim.SetBool("isCrouching", false);
+            }
         }
 
+        if (!isActive && lineOn == true || gameManager.playerTurn == false && lineOn == true && OUT == false)
+        {
+            LineRenderer line = GetComponent<LineRenderer>();
+            Destroy(line);
+            lineOn = false;
+        }
     }
 
+    /*
     private void OnTriggerEnter(Collider other)
     {
         //Calculate defense
@@ -118,6 +169,7 @@ public class PlayerController : MonoBehaviour
             defenseWest = currentTile.westCover;
         }
     }
+    */
 
     //OLD DEFENSE
     /*
@@ -211,42 +263,75 @@ public class PlayerController : MonoBehaviour
 
     public void drawLine(Vector3 hit)
     {
-        //DRAW LINE
-        NavMesh.CalculatePath(transform.position, hit, NavMesh.AllAreas, path);
-        if (path.corners.Length >= 2)
+        if (OUT == false)
         {
-            Vector3 previousCorner = path.corners[0];
-            float lengthSoFar = 0.0F;
-            int i = 1;
-            while (i < path.corners.Length)
+            lineOn = true;
+            //DRAW LINE
+            NavMesh.CalculatePath(transform.position, hit, NavMesh.AllAreas, path);
+            if (path.corners.Length >= 2)
             {
-                Vector3 currentCorner = path.corners[i];
-                lengthSoFar += Vector3.Distance(previousCorner, currentCorner);
-                previousCorner = currentCorner;
-                i++;
-            }
+                Vector3 previousCorner = path.corners[0];
+                float lengthSoFar = 0.0F;
+                int i = 1;
+                while (i < path.corners.Length)
+                {
+                    Vector3 currentCorner = path.corners[i];
+                    lengthSoFar += Vector3.Distance(previousCorner, currentCorner);
+                    previousCorner = currentCorner;
+                    i++;
+                }
 
-            for (int j = 0; j < path.corners.Length - 1; j++)
-            {
-                if (lengthSoFar <= movement1 && actionCount == 2)
+
+                LineRenderer line = GetComponent<LineRenderer>();
+                if (line == null)
                 {
-                    inRange = 1;
-                    Debug.DrawLine(path.corners[j], path.corners[j + 1], Color.blue);
+                    line = gameObject.AddComponent<LineRenderer>();
+                    //line.material = new Material(Shader.Find("Sprites/Default")) { color = Color.yellow };
+                    line.startWidth = 0.05f;
+                    line.endWidth = 0.2f;
+                    line.numCornerVertices = 10;
+                    //line.numCapVertices = 20;
+                    //line.SetColors(Color.yellow, Color.yellow);
                 }
-                else if (lengthSoFar >= movement1 && lengthSoFar <= movement2 && actionCount == 2)
+
+
+                //var path = nav.path;
+
+                line.positionCount = path.corners.Length;
+
+                for (int k = 0; k < path.corners.Length; k++)
                 {
-                    inRange = 2;
-                    Debug.DrawLine(path.corners[j], path.corners[j + 1], Color.yellow);
+                    line.SetPosition(k, path.corners[k]);
                 }
-                else if (actionCount == 1 && lengthSoFar <= movement1)
+
+                for (int j = 0; j < path.corners.Length - 1; j++)
                 {
-                    inRange = 1;
-                    Debug.DrawLine(path.corners[j], path.corners[j + 1], Color.yellow);
-                }
-                else if (lengthSoFar >= movement2 && actionCount == 2 || lengthSoFar >= movement1 && actionCount == 1)
-                {
-                    inRange = 0;
-                    Debug.DrawLine(path.corners[j], path.corners[j + 1], Color.red);
+                    if (lengthSoFar <= movement1 && actionCount == 2 && isActive)
+                    {
+                        inRange = 1;
+                        //Debug.DrawLine(path.corners[j], path.corners[j + 1], Color.blue);
+                        line.material = (Material)Resources.Load("lineBlue_mat", typeof(Material));
+                    }
+                    else if (lengthSoFar >= movement1 && lengthSoFar <= movement2 && actionCount == 2 && isActive)
+                    {
+                        inRange = 2;
+                        //Debug.DrawLine(path.corners[j], path.corners[j + 1], Color.yellow);
+                        line.material = (Material)Resources.Load("lineYellow_mat", typeof(Material));
+                    }
+                    else if (actionCount == 1 && lengthSoFar <= movement1 && isActive)
+                    {
+                        inRange = 1;
+                        //Debug.DrawLine(path.corners[j], path.corners[j + 1], Color.yellow);
+                        line.material = (Material)Resources.Load("lineYellow_mat", typeof(Material));
+                    }
+                    else if (lengthSoFar >= movement2 && actionCount == 2 || lengthSoFar >= movement1 && actionCount == 1 || actionCount == 0 && isActive)
+                    {
+                        inRange = 0;
+                        //Debug.DrawLine(path.corners[j], path.corners[j + 1], Color.red);
+                        line.material = (Material)Resources.Load("lineRed_mat", typeof(Material));
+                    }
+                    else
+                        line.material.color = Color.clear;
                 }
             }
         }
@@ -254,14 +339,20 @@ public class PlayerController : MonoBehaviour
 
     public void moveUnit(Vector3 hit)
     {
-        //MOVE OUR AGENT
-        //defenseNorth = defenseEast = defenseSouth = defenseWest = 0;
-        anim.SetBool("isRunning", true);
-        agent.SetDestination(hit);
-        actionCount -= inRange;
+        if (OUT == false)
+        {
+            //MOVE OUR AGENT
+            //defenseNorth = defenseEast = defenseSouth = defenseWest = 0;
+            anim.SetBool("isRunning", true);
+            agent.SetDestination(hit);
+            actionCount -= inRange;
+            isMoving = true;
 
-        gameManager.teamActionCount -= inRange;
-        gameManager.SetActionText();
+            gameManager.teamActionCount -= inRange;
+            gameManager.SetActionText();
+
+            audioSource.PlayOneShot(footsteps, 0.7f);
+        }
     }
 
     public void activateUnit()
@@ -276,7 +367,7 @@ public class PlayerController : MonoBehaviour
 
     public void fireAtEnemy()
     {
-        if (isActive)
+        if (isActive && OUT == false)
         {
             GameObject clone = Instantiate(bullet, gameObject.transform.position, gameObject.transform.rotation);
             Rigidbody cloneRB = clone.GetComponent<Rigidbody>();
@@ -284,6 +375,10 @@ public class PlayerController : MonoBehaviour
             //Destroy(clone.gameObject, 0.5f);
 
             actionCount--;
+
+            anim.SetTrigger("Fire");
+            anim.ResetTrigger("Fire");
+
         }
     }
 

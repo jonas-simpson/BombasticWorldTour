@@ -6,6 +6,8 @@ public class Tile : MonoBehaviour
 {
     public GameTracker gameManager;
 
+    public bool walkable = true;
+
     public bool selected;
 
     public int northCover;
@@ -23,7 +25,6 @@ public class Tile : MonoBehaviour
 	void Start ()
     {
         mat = GetComponent<Renderer>().material;
-
         //Change the Color back to white when the mouse exits the GameObject
 
     }

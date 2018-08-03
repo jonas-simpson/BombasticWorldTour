@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33309707409374940}
   - component: {fileID: 23529614021514806}
   - component: {fileID: 135923766946404258}
-  - component: {fileID: 54864996128924248}
+  - component: {fileID: 114340668334003970}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -85,21 +85,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1496232580904032}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54864996128924248
-Rigidbody:
+--- !u!114 &114340668334003970
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1496232580904032}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49a61e74c0d9a4478b075b6ec9faf3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPos: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
+  speed: 30
 --- !u!135 &135923766946404258
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -108,7 +107,7 @@ SphereCollider:
   m_GameObject: {fileID: 1496232580904032}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

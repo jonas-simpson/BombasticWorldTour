@@ -17,9 +17,11 @@ public class GameTracker : MonoBehaviour
 
     private GameObject[] heroes;
     public int heroCount;
+    public int falseHeroCount;
 
     private GameObject[] enemies;
     public int enemyCount;
+    public int falseEnemyCount;
 
     public PlayerController activeHero;
 
@@ -37,9 +39,18 @@ public class GameTracker : MonoBehaviour
     private GameObject[] tiles;
     public int tileCount;
 
+    public AudioClip slap;
+    public AudioClip punch;
+    public AudioClip pan;
+    public AudioClip tileSelect;
+    public AudioSource masterAudio;
+
+    public AudioClip[] hitSound;
+
     // Use this for initialization
     void Start ()
     {
+        //masterAudio = gameObject.GetComponent<AudioSource>();
         teamActionCount = 5;
         playerTurn = true;
 
@@ -51,10 +62,13 @@ public class GameTracker : MonoBehaviour
 
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         enemyCount = enemies.Length;
+        falseEnemyCount = enemyCount;
         enemyCountText.text = "Enemy Count: " + enemyCount.ToString();
 
         heroes = GameObject.FindGameObjectsWithTag("Hero");
         heroCount = heroes.Length;
+        falseHeroCount = heroCount;
+
 
         tiles = GameObject.FindGameObjectsWithTag("Tile");
         tileCount = tiles.Length;
@@ -69,7 +83,7 @@ public class GameTracker : MonoBehaviour
 		if (teamActionCount <= 0)
         {
             playerTurn = false;
-            teamActionText.text = "EnemyTurn";
+            teamActionText.text = "Enemy\nTurn";
             funny = false;
             teamActionCount++;
         }
@@ -82,12 +96,12 @@ public class GameTracker : MonoBehaviour
             StartCoroutine(actionReset());
         }
 
-        if(enemyCount <= 0)
+        if(falseEnemyCount <= 0)
         {
             WinGame();
         }
 
-        if (heroCount <= 0)
+        if (falseHeroCount <= 0)
         {
             LoseGame();
         }
@@ -151,13 +165,16 @@ public class GameTracker : MonoBehaviour
         for (int i = 0; i < enemyCount; i++)
         {
             EnemyController enemyMover = enemies[i].GetComponent<EnemyController>();
-            enemyMover.isActive = true;
-            enemyMover.move();
-            Debug.Log("moved enemy");
-            yield return new WaitForSeconds(1f);
-            enemyMover.AttackPlayer();
-            yield return new WaitForSeconds(1f);
-            enemyMover.isActive = false;
+            if (enemyMover.OUT == false)
+            {
+                enemyMover.isActive = true;
+                enemyMover.move();
+                Debug.Log("moved enemy");
+                yield return new WaitForSeconds(2f);
+                enemyMover.AttackPlayer();
+                yield return new WaitForSeconds(1f);
+                enemyMover.isActive = false;
+            }
         }
 
         movingEnemies = false;
@@ -195,13 +212,16 @@ public class GameTracker : MonoBehaviour
 
         for (int i = 0; i < heroCount; i++)
         {
-            //PlayerController heroChecker = heroes[i].GetComponent<PlayerController>();
-            heroDistance[i] = Vector3.Distance(heroes[i].transform.position, currentEnemy.transform.position);
-
-            if (heroDistance[i] < lowestDistance)
+            PlayerController heroChecker = heroes[i].GetComponent<PlayerController>();
+            if (heroChecker.OUT == false)
             {
-                lowestDistance = heroDistance[i];
-                lowestIndex = i;
+                heroDistance[i] = Vector3.Distance(heroes[i].transform.position, currentEnemy.transform.position);
+
+                if (heroDistance[i] < lowestDistance)
+                {
+                    lowestDistance = heroDistance[i];
+                    lowestIndex = i;
+                }
             }
         }
         //Debug.Log(heroes[lowestIndex]);
@@ -276,13 +296,26 @@ public class GameTracker : MonoBehaviour
         PlayerController hero = heroObject.GetComponent<PlayerController>();
         EnemyController enemy = enemyObject.GetComponent<EnemyController>();
 
+        Animator enemyAnim = enemyObject.GetComponent<Animator>();
+        Animator heroAnim = heroObject.GetComponent<Animator>();
+
+        heroObject.transform.LookAt(enemyObject.transform.position);
+        enemyObject.transform.LookAt(heroObject.transform.position);
+
         //enemy attacking hero
         if (playerTurn == false)
         {
+            AudioSource audioSource = heroObject.GetComponent<AudioSource>();
+            //audioSource.PlayOneShot(slap, 1.0f);
+            audioSource.PlayOneShot(hitSound[Random.Range(0, 6)], 0.7f);
+
+            enemyAnim.SetTrigger("Fire");
+            heroAnim.SetTrigger("TakeDamage");
+
             Vector3 targetDir = (heroObject.transform.position - enemyObject.transform.position).normalized;
             float angle = Vector3.Angle(targetDir, Vector3.forward);
             Vector3 cross = Vector3.Cross(targetDir, Vector3.forward);
-            Debug.Log(cross.y);
+            //Debug.Log(cross.y);
             if (cross.y < 0 || cross.y > 0.99)
                 angle = -angle;
             //float angle = Mathf.Atan2(localTarget.x, localTarget.z) * Mathf.Rad2Deg
@@ -307,15 +340,26 @@ public class GameTracker : MonoBehaviour
             {
                 finalDefense += hero.defenseWest;
             }
+            //anim.ResetTrigger("Fire");
+
         }
 
         //hero attacking enemy
         else
         {
+            AudioSource audioSource = enemyObject.GetComponent<AudioSource>();
+            //audioSource.PlayOneShot(pan, 1.0f);
+            audioSource.PlayOneShot(hitSound[Random.Range(0, 6)], 0.7f);
+
+
+            enemyAnim.SetTrigger("TakeDamage");
+            heroAnim.SetTrigger("Fire");
+            //anim.ResetTrigger("Fire");
+
             Vector3 targetDir = (enemyObject.transform.position - heroObject.transform.position).normalized;
             float angle = Vector3.Angle(targetDir, Vector3.forward);
             Vector3 cross = Vector3.Cross(targetDir, Vector3.forward);
-            Debug.Log(cross.y);
+            //Debug.Log(cross.y);
             if (cross.y < 0 || cross.y > 0.99)
                 angle = -angle;
             //float angle = Mathf.Atan2(localTarget.x, localTarget.z) * Mathf.Rad2Deg
@@ -340,6 +384,7 @@ public class GameTracker : MonoBehaviour
             {
                 finalDefense += enemy.defenseWest;
             }
+
         }
 
         return finalDefense;
@@ -350,7 +395,7 @@ public class GameTracker : MonoBehaviour
         PlayerController activeHero = CheckActiveHero();
         if (activeHero.inRange <= activeHero.actionCount && activeHero.inRange <= teamActionCount && activeHero.inRange != 0)
         {
-
+            masterAudio.PlayOneShot(tileSelect, 1.0f);
             activeHero.moveUnit(target);
         }
     }
@@ -402,12 +447,12 @@ public class GameTracker : MonoBehaviour
 
     public void WinGame()
     {
-        SceneManager.LoadScene("03 Win");
+        SceneManager.LoadScene("21 Win");
     }
 
     public void LoseGame()
     {
-        SceneManager.LoadScene("04 Lose");
+        SceneManager.LoadScene("22 Lose");
     }
 
 

@@ -1,0 +1,406 @@
+fileFormatVersion: 2
+guid: 546f67268636dc946895d0797026f7f8
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: almostOpen_blend
+    100002: angry_blend
+    100004: angryLeft_blend
+    100006: angryRight_blend
+    100008: ankle_L_joint
+    100010: ankle_R_joint
+    100012: arm_L_joint
+    100014: arm_R_joint
+    100016: bandana_geo
+    100018: blendshapes_group
+    100020: blink_blend
+    100022: blink_blend1
+    100024: blink_blend2
+    100026: blinkers_head_geo_group
+    100028: body_geo
+    100030: collar_L_joint
+    100032: collar_R_joint
+    100034: default_blend
+    100036: default_blend1
+    100038: default_blend2
+    100040: default_blend3
+    100042: elbow_L_joint
+    100044: elbow_R_joint
+    100046: eye_L_joint
+    100048: eye_R_joint
+    100050: eyeEnd_L_joint
+    100052: eyeEnd_R_joint
+    100054: eyelids_geo
+    100056: face_joint
+    100058: foot_L_joint
+    100060: foot_R_joint
+    100062: fullyOpen_blend
+    100064: geometry_group
+    100066: hat_geo
+    100068: head_geo
+    100070: head_geo 1
+    100072: head_geo 10
+    100074: head_geo 11
+    100076: head_geo 12
+    100078: head_geo 2
+    100080: head_geo 3
+    100082: head_geo 4
+    100084: head_geo 5
+    100086: head_geo 6
+    100088: head_geo 7
+    100090: head_geo 8
+    100092: head_geo 9
+    100094: head_joint
+    100096: headEnd_joint
+    100098: hood1_joint
+    100100: hood2_joint
+    100102: hood3_joint
+    100104: hood4_joint
+    100106: index1_L_joint
+    100108: index1_R_joint
+    100110: index2_L_joint
+    100112: index2_R_joint
+    100114: index3_L_joint
+    100116: index3_R_joint
+    100118: index4_L_joint
+    100120: index4_R_joint
+    100122: joints_group
+    100124: knee_L_joint
+    100126: knee_R_joint
+    100128: leg_L_joint
+    100130: leg_R_joint
+    100132: middle1_L_joint
+    100134: middle1_R_joint
+    100136: middle2_L_joint
+    100138: middle2_R_joint
+    100140: middle3_L_joint
+    100142: middle3_R_joint
+    100144: middle4_L_joint
+    100146: middle4_R_joint
+    100148: pinky1_L_joint
+    100150: pinky1_R_joint
+    100152: pinky2_L_joint
+    100154: pinky2_R_joint
+    100156: pinky3_L_joint
+    100158: pinky3_R_joint
+    100160: pinky4_L_joint
+    100162: pinky4_R_joint
+    100164: //RootNode
+    100166: pupil_geo
+    100168: pupil_geo 1
+    100170: pupil_geo 10
+    100172: pupil_geo 11
+    100174: pupil_geo 12
+    100176: pupil_geo 2
+    100178: pupil_geo 3
+    100180: pupil_geo 4
+    100182: pupil_geo 5
+    100184: pupil_geo 6
+    100186: pupil_geo 7
+    100188: pupil_geo 8
+    100190: pupil_geo 9
+    100192: ROOT_joint
+    100194: spine1_joint
+    100196: spine2_joint
+    100198: spine3_joint
+    100200: thumb1_L_joint
+    100202: thumb1_R_joint
+    100204: thumb2_L_joint
+    100206: thumb2_R_joint
+    100208: thumb3_L_joint
+    100210: thumb3_R_joint
+    100212: thumb4_L_joint
+    100214: thumb4_R_joint
+    100216: toes_L_joint
+    100218: toes_R_joint
+    100220: wrist_L_joint
+    100222: wrist_R_joint
+    400000: almostOpen_blend
+    400002: angry_blend
+    400004: angryLeft_blend
+    400006: angryRight_blend
+    400008: ankle_L_joint
+    400010: ankle_R_joint
+    400012: arm_L_joint
+    400014: arm_R_joint
+    400016: bandana_geo
+    400018: blendshapes_group
+    400020: blink_blend
+    400022: blink_blend1
+    400024: blink_blend2
+    400026: blinkers_head_geo_group
+    400028: body_geo
+    400030: collar_L_joint
+    400032: collar_R_joint
+    400034: default_blend
+    400036: default_blend1
+    400038: default_blend2
+    400040: default_blend3
+    400042: elbow_L_joint
+    400044: elbow_R_joint
+    400046: eye_L_joint
+    400048: eye_R_joint
+    400050: eyeEnd_L_joint
+    400052: eyeEnd_R_joint
+    400054: eyelids_geo
+    400056: face_joint
+    400058: foot_L_joint
+    400060: foot_R_joint
+    400062: fullyOpen_blend
+    400064: geometry_group
+    400066: hat_geo
+    400068: head_geo
+    400070: head_geo 1
+    400072: head_geo 10
+    400074: head_geo 11
+    400076: head_geo 12
+    400078: head_geo 2
+    400080: head_geo 3
+    400082: head_geo 4
+    400084: head_geo 5
+    400086: head_geo 6
+    400088: head_geo 7
+    400090: head_geo 8
+    400092: head_geo 9
+    400094: head_joint
+    400096: headEnd_joint
+    400098: hood1_joint
+    400100: hood2_joint
+    400102: hood3_joint
+    400104: hood4_joint
+    400106: index1_L_joint
+    400108: index1_R_joint
+    400110: index2_L_joint
+    400112: index2_R_joint
+    400114: index3_L_joint
+    400116: index3_R_joint
+    400118: index4_L_joint
+    400120: index4_R_joint
+    400122: joints_group
+    400124: knee_L_joint
+    400126: knee_R_joint
+    400128: leg_L_joint
+    400130: leg_R_joint
+    400132: middle1_L_joint
+    400134: middle1_R_joint
+    400136: middle2_L_joint
+    400138: middle2_R_joint
+    400140: middle3_L_joint
+    400142: middle3_R_joint
+    400144: middle4_L_joint
+    400146: middle4_R_joint
+    400148: pinky1_L_joint
+    400150: pinky1_R_joint
+    400152: pinky2_L_joint
+    400154: pinky2_R_joint
+    400156: pinky3_L_joint
+    400158: pinky3_R_joint
+    400160: pinky4_L_joint
+    400162: pinky4_R_joint
+    400164: //RootNode
+    400166: pupil_geo
+    400168: pupil_geo 1
+    400170: pupil_geo 10
+    400172: pupil_geo 11
+    400174: pupil_geo 12
+    400176: pupil_geo 2
+    400178: pupil_geo 3
+    400180: pupil_geo 4
+    400182: pupil_geo 5
+    400184: pupil_geo 6
+    400186: pupil_geo 7
+    400188: pupil_geo 8
+    400190: pupil_geo 9
+    400192: ROOT_joint
+    400194: spine1_joint
+    400196: spine2_joint
+    400198: spine3_joint
+    400200: thumb1_L_joint
+    400202: thumb1_R_joint
+    400204: thumb2_L_joint
+    400206: thumb2_R_joint
+    400208: thumb3_L_joint
+    400210: thumb3_R_joint
+    400212: thumb4_L_joint
+    400214: thumb4_R_joint
+    400216: toes_L_joint
+    400218: toes_R_joint
+    400220: wrist_L_joint
+    400222: wrist_R_joint
+    2100000: blinkers_body_mat
+    2100002: blinkers_legs_mat
+    2100004: blinkers_gloves_mat
+    2100006: blinkers_bandana_mat
+    2100008: blinkers_hatTop_mat
+    2100010: blinkers_hatBottom_mat
+    2100012: blinkers_eyeball_mat
+    2100014: blinkers_pupil_mat
+    2100016: blinkers_eyelids_mat
+    2300000: bandana_geo
+    2300002: hat_geo
+    2300004: head_geo
+    2300006: head_geo 1
+    2300008: head_geo 10
+    2300010: head_geo 11
+    2300012: head_geo 2
+    2300014: head_geo 3
+    2300016: head_geo 4
+    2300018: head_geo 5
+    2300020: head_geo 6
+    2300022: head_geo 7
+    2300024: head_geo 8
+    2300026: head_geo 9
+    2300028: pupil_geo
+    2300030: pupil_geo 1
+    2300032: pupil_geo 10
+    2300034: pupil_geo 11
+    2300036: pupil_geo 2
+    2300038: pupil_geo 3
+    2300040: pupil_geo 4
+    2300042: pupil_geo 5
+    2300044: pupil_geo 6
+    2300046: pupil_geo 7
+    2300048: pupil_geo 8
+    2300050: pupil_geo 9
+    3300000: bandana_geo
+    3300002: hat_geo
+    3300004: head_geo
+    3300006: head_geo 1
+    3300008: head_geo 10
+    3300010: head_geo 11
+    3300012: head_geo 2
+    3300014: head_geo 3
+    3300016: head_geo 4
+    3300018: head_geo 5
+    3300020: head_geo 6
+    3300022: head_geo 7
+    3300024: head_geo 8
+    3300026: head_geo 9
+    3300028: pupil_geo
+    3300030: pupil_geo 1
+    3300032: pupil_geo 10
+    3300034: pupil_geo 11
+    3300036: pupil_geo 2
+    3300038: pupil_geo 3
+    3300040: pupil_geo 4
+    3300042: pupil_geo 5
+    3300044: pupil_geo 6
+    3300046: pupil_geo 7
+    3300048: pupil_geo 8
+    3300050: pupil_geo 9
+    4300000: body_geo
+    4300002: bandana_geo
+    4300004: hat_geo
+    4300006: head_geo
+    4300008: pupil_geo
+    4300010: eyelids_geo
+    4300012: head_geo
+    4300014: pupil_geo
+    4300016: head_geo
+    4300018: pupil_geo
+    4300020: head_geo
+    4300022: pupil_geo
+    4300024: head_geo
+    4300026: pupil_geo
+    4300028: head_geo
+    4300030: pupil_geo
+    4300032: head_geo
+    4300034: pupil_geo
+    4300036: head_geo
+    4300038: pupil_geo
+    4300040: head_geo
+    4300042: pupil_geo
+    4300044: head_geo
+    4300046: pupil_geo
+    4300048: head_geo
+    4300050: pupil_geo
+    4300052: head_geo
+    4300054: pupil_geo
+    4300056: head_geo
+    4300058: pupil_geo
+    9500000: //RootNode
+    13700000: body_geo
+    13700002: eyelids_geo
+    13700004: head_geo 12
+    13700006: pupil_geo 12
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

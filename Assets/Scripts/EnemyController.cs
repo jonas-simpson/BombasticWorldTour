@@ -43,6 +43,15 @@ public class EnemyController : MonoBehaviour
     public Canvas myCanvas;
     public Text healthText;
 
+    public Animator anim;
+
+    public bool OUT = false;
+
+    AudioSource audioSource;
+    public AudioClip footsteps;
+
+
+
     // Use this for initialization
     void Start()
     {
@@ -54,12 +63,17 @@ public class EnemyController : MonoBehaviour
 
         myMat = GetComponent<Renderer>().material;
 
+        anim = gameObject.GetComponent<Animator>();
+
+        audioSource = gameObject.GetComponent<AudioSource>();
+
         UpdateUI();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (rb.velocity.magnitude > 0)
         {
             isMoving = true;
@@ -74,38 +88,67 @@ public class EnemyController : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (hit.transform.gameObject == gameObject)
+                    if (hit.transform.gameObject == gameObject && OUT == false)
                     {
                         PlayerController currentHero = gameManager.CheckActiveHero();
-                        currentHero.actionCount--;
-                        gameManager.teamActionCount--;
-                        gameManager.SetActionText();
-                        //GameObject clone = Instantiate(bullet, currentHero.transform.position, currentHero.transform.rotation);
-                        //clone.transform.LookAt(gameObject.transform.position);
-                        //float travelDistance = Vector3.Distance(gameObject.transform.position, currentHero.transform.position);
-                        //for (float f = 0; f < Vector3.Distance(gameObject.transform.position, currentHero.transform.position); f++)
-                            //clone.transform.Translate(transform.forward, 0.1);
-
-                        hp -= currentHero.attack;
-                        UpdateUI();
-
-                        if (hp <= 0)
+                        if (currentHero.OUT == false)
                         {
-                            gameManager.enemyCount--;
-                            gameManager.enemyCountText.text = "Enemy Count: " + gameManager.enemyCount.ToString();                      
-                            gameObject.SetActive(false);
+                            //currentHero.actionCount--;
+                            gameManager.teamActionCount--;
+                            gameManager.SetActionText();
+                            GameObject clone = Instantiate(bullet, currentHero.transform.position, currentHero.transform.rotation);
+                            clone.GetComponent<BulletScript>().target = gameObject;
 
-                            /*
-                            Destroy(healthText);
-                            Destroy(myCanvas);
-                            Destroy(gameObject);
-                            gameManager.enemyCount--;
-                            */
+                            int currentDefense = gameManager.calculateDefense(currentHero.gameObject, gameObject);
+                            hp -= (currentHero.attack - currentDefense);
+                            UpdateUI();
+
+                            if (hp <= 0)
+                            {
+                                gameManager.falseEnemyCount--;
+                                gameManager.enemyCountText.text = "Enemy Count: " + gameManager.falseEnemyCount.ToString();
+                                //gameObject.SetActive(false);
+
+                                anim.SetBool("isOut", true);
+                                Debug.Log("Enemy OUT! Nice shot!");
+
+                                healthText.text = "KO!";
+
+                                OUT = true;
+                            }
                         }
                     }
                 }
             }
         }
+
+        if (agent.remainingDistance <= 0.1 && isMoving)
+        {
+            isMoving = false;
+            audioSource.Stop();
+
+
+
+            RaycastHit hit;
+            Physics.Raycast(transform.position, -Vector3.up, out hit);
+            Debug.Log(hit.collider.gameObject);
+            Tile currentTile = hit.transform.gameObject.GetComponent<Tile>();
+            defenseNorth = currentTile.northCover;
+            defenseSouth = currentTile.southCover;
+            defenseEast = currentTile.eastCover;
+            defenseWest = currentTile.westCover;
+
+            anim.SetBool("isRunning", false);
+            if (defenseNorth + defenseSouth + defenseEast + defenseWest > 0)
+            {
+                anim.SetBool("isCrouching", true);
+            }
+            else
+            {
+                anim.SetBool("isCrouching", false);
+            }
+        }
+
     }
     //OLD DEFENSE
     /*
@@ -192,6 +235,7 @@ public class EnemyController : MonoBehaviour
     }
     */
 
+    /*
     private void OnTriggerEnter(Collider other)
     {
         //Calculate defense
@@ -207,14 +251,21 @@ public class EnemyController : MonoBehaviour
             defenseWest = currentTile.westCover;
         }
     }
+    */
 
     public void move()
     {
+        audioSource.PlayOneShot(footsteps, 0.7f);
+
+        isMoving = true;
+
+        anim.SetBool("isRunning", true);
+
         Vector3 targetTile;
         Vector3 randomDirection = Random.insideUnitSphere * movement1;
-        Debug.Log(randomDirection);
+        //Debug.Log(randomDirection);
         randomDirection += transform.position;
-        Debug.Log(randomDirection);
+        //Debug.Log(randomDirection);
         targetTile = gameManager.PickTile(randomDirection);
         NavMeshHit hit;
         NavMesh.SamplePosition(targetTile, out hit, movement1, 1);
@@ -249,19 +300,24 @@ public class EnemyController : MonoBehaviour
     {
         //Debug.Log("inside attackPlayer");
         GameObject target = gameManager.FindClosestHero(gameObject);
-        PlayerController targetHero = target.GetComponent<PlayerController>();
-        Debug.Log(targetHero);
+        if ((target.transform.position - gameObject.transform.position).magnitude <= range)
+        {
+            PlayerController targetHero = target.GetComponent<PlayerController>();
+            Debug.Log(targetHero);
+            GameObject clone = Instantiate(bullet, gameObject.transform.position, gameObject.transform.rotation);
+            clone.GetComponent<BulletScript>().target = target;
 
-        int playerDamage = attack - gameManager.calculateDefense(target, gameObject);
+            int playerDamage = attack - gameManager.calculateDefense(target, gameObject);
 
-        Debug.Log("defense: " + gameManager.calculateDefense(target, gameObject));
+            Debug.Log("defense: " + gameManager.calculateDefense(target, gameObject));
 
-        if (playerDamage < 0)
-            playerDamage = 0;
+            if (playerDamage < 0)
+                playerDamage = 0;
 
-        Debug.Log("playerdamage: " + playerDamage);
+            Debug.Log("playerdamage: " + playerDamage);
 
-        targetHero.hp -= playerDamage;
-        targetHero.updateUI();
+            targetHero.hp -= playerDamage;
+            targetHero.updateUI();
+        }
     }
 }
